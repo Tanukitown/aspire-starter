@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "fluent-ui-blazor": {
+      "type": "stdio",
+      "command": "dotnet",
+      "args": ["tool", "run", "fluentui-mcp"]
+    }
+  }
+}

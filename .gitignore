@@ -20,13 +20,6 @@ publish/
 .aspire/
 azurite/
 
-# VS Code
-.vscode/
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
 # Operating System specific files
 .DS_Store
 .DS_Store?
