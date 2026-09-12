@@ -1,0 +1,36 @@
+@page "/Login"
+@attribute [AllowAnonymous]
+
+<PageTitle>Sign in</PageTitle>
+
+<section class="login-page">
+    <form class="login-form" method="post" action="/account/login">
+        <AntiforgeryToken />
+        <input type="hidden" name="returnUrl" value="@ReturnUrl" />
+        <h1>Sign in</h1>
+
+        @if (Error == "invalid")
+        {
+            <FluentMessageBar Intent="MessageBarIntent.Error">
+                The username or password is incorrect.
+            </FluentMessageBar>
+        }
+
+        <FluentTextInput Name="username" Label="Username" AutoComplete="username" Required="true" />
+
+        <FluentTextInput Name="password" Label="Password" TextInputType="TextInputType.Password"
+                         AutoComplete="current-password" Required="true" />
+
+        <FluentButton Type="ButtonType.Submit" Appearance="ButtonAppearance.Primary">Sign in</FluentButton>
+    </form>
+</section>
+
+@code {
+    [SupplyParameterFromQuery(Name = "returnUrl")]
+    private string? ReturnUrl { get; set; }
+
+    [SupplyParameterFromQuery(Name = "error")]
+    private string? Error { get; set; }
+}
+
+
